@@ -1,0 +1,36 @@
+<head>
+  <title>Pie Chart</title>
+</head>
+
+<body>
+  {{> piechart}}
+</body>
+
+<template name="piechart">
+  {{#if dataLoaded}}
+    {{> piecanvas}}
+  {{else}}
+    <div style="width:400px; height:400px">{{! Loading}}</div>
+  {{/if}}
+  <div>
+    {{#each pieSegments}}
+    <div>
+      <span style="background-color: {{color}}">&nbsp;&nbsp;&nbsp;</span>&nbsp;
+      {{label}}
+      <input type=submit value={{label}}
+             class="increment-button" data-id={{_id}}>
+      {{getCount _id}}
+    </div>
+    {{/each}}
+  </div>
+  <div>
+    <input type=submit value=Reset class="reset-button">
+  </div>
+
+  <p>The data is stored in the server-side database,
+    so try opening another window!</p>
+</template>
+
+<template name="piecanvas">
+  <canvas style="display:block" id="piechart" width="400" height="400"></canvas>
+</template>
