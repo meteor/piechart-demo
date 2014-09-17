@@ -10,7 +10,9 @@
   {{#if dataLoaded}}
     {{> piecanvas}}
   {{else}}
-    <div style="width:400px; height:400px">{{! Loading}}</div>
+    <div style="width:400px; height:400px">
+      {{> spinner}}
+    </div>
   {{/if}}
   <div>
     {{#each pieSegments}}
